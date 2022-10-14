@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping</title>
+    <style>
+
+        figure.snip1278 {
+            font-family: 'Raleway', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+            min-width: 230px;
+            max-width: 310px;
+            width: 100%;
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        }
+
+        figure.snip1278 * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+            transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+        }
+
+        figure.snip1278 .image {
+            background-color: #000000;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        figure.snip1278 .image:after {
+            background-color: rgba(0, 0, 0, 0.85);
+            position: absolute;
+            content: '';
+            top: 0;
+            right: 0;
+            left: 50%;
+            bottom: 0;
+        }
+
+        figure.snip1278 img {
+            max-width: 100%;
+            vertical-align: top;
+        }
+
+        figure.snip1278 figcaption {
+            position: absolute;
+            width: 50%;
+            right: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 10px 25px;
+        }
+
+        figure.snip1278 h4,
+        figure.snip1278 p,
+        figure.snip1278 .price {
+            margin: 0 0 8px;
+        }
+
+        figure.snip1278 h4 {
+            position: absolute;
+            width: 50%;
+            top: 10px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: #ffffff;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        figure.snip1278 p {
+            font-size: 0.7em;
+            font-weight: 500;
+            line-height: 1.6em;
+        }
+
+        figure.snip1278 .rating {
+            position: absolute;
+            width: 50%;
+            line-height: 44px;
+            color: #ffffff;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        figure.snip1278 .price {
+            color: #ffffff;
+            font-size: 1.3em;
+            opacity: 0.8;
+        }
+
+        figure.snip1278 .price s {
+            display: inline-block;
+            padding: 0 8px 0 0;
+            font-size: 0.85em;
+            color: #f39c12;
+        }
+
+        figure.snip1278 .add-to-cart {
+            text-decoration: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-weight: 600;
+            width: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            line-height: 44px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        figure.snip1278:hover img,
+        figure.snip1278.hover img {
+            opacity: 0.6;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        figure.snip1278:hover .add-to-cart,
+        figure.snip1278.hover .add-to-cart {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <figure class="snip1278">
+        <h4>Light Top</h4>
+        <div class="image">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample6.jpg" alt="sq-sample6"/>
+        </div>
+        <div class="rating"><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i
+                class="ion-ios-star"></i><i class="ion-ios-star-outline"></i></div>
+        <figcaption>
+            <p>
+                I'm just very selective about the reality I choose to accept.
+            </p>
+            <div class="price">
+                <s>$24.00</s>$19.00
+            </div>
+        </figcaption>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+    </figure>
+    <figure class="snip1278 hover">
+        <h4>Duffle Coat</h4>
+        <div class="image">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17"/>
+        </div>
+        <div class="rating"><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i
+                class="ion-ios-star"></i><i class="ion-ios-star-outline"></i></div>
+        <figcaption>
+            <p>
+                I suppose if we couldn't laugh at things that don't make sense, we couldn't react to a lot of life.
+            </p>
+            <div class="price">
+                <s>$29.00</s>$24.00
+            </div>
+        </figcaption>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+    </figure>
+    <figure class="snip1278 hover">
+        <h4>Blue Jeans </h4>
+        <div class="image">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample22.jpg" alt="sq-sample22"/>
+        </div>
+        <div class="rating"><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i
+                class="ion-ios-star-outline"></i><i class="ion-ios-star-outline"></i></div>
+        <figcaption>
+            <p>
+                I'm just very selective about the reality I choose to accept.
+            </p>
+            <div class="price">
+                <s>$32.00</s>$28.00
+            </div>
+        </figcaption>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+    </figure>
+</div>
+</body>
+</html>

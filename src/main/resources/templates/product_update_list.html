@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!--jQuery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!--Latest compiled and minified JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        nav .navbar-header a {
+            font-family: 'Raleway', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        nav .navbar-header a, ul li a {
+            color: #fff;
+
+        }
+
+        nav .navbar-header button .fa {
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 4px 10px;
+            font-size: 1.5em;
+            position: absolute;
+            top: -0.5px;
+            left: -30px;
+        }
+
+        .glyphicon-search {
+            color: #2874f0;
+        }
+
+        form {
+            position: relative;
+            top: 10px;
+        }
+
+        header {
+            color: #fff;
+            position: relative;
+            top: 4em;
+
+        }
+
+        header h2 {
+            font-size: 3em;
+        }
+
+        header .jumbotron {
+            background-image: url('https://ak0.picdn.net/shutterstock/videos/10167680/thumb/1.jpg');
+            width: 100%;
+            background-size: cover;
+        }
+
+        section {
+            position: relative;
+            top: 8em;
+        }
+
+        section .page nav ul {
+            position: relative;
+            margin-left: -15px;
+        }
+
+        footer {
+            position: relative;
+            top: 9em;
+            color: #565656;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        footer .container .col-sm-4 ul li a {
+            color: #565656;
+        }
+
+        footer .container .col-sm-4 ul li a:hover {
+            text-decoration: none;
+        }
+
+        footer .container-fluid span {
+            font-size: 30px;
+            position: absolute;
+            top: 25%;
+            left: 12%;
+        }
+
+        footer .container-fluid h3 {
+            font-size: 20px;
+            margin-left: 30px;
+        }
+
+        @media (max-width: 766px) {
+
+            section {
+                width: 80%;
+                left: 10%;
+            }
+
+        }
+
+        @media (min-width: 863px) {
+            footer .container-fluid span {
+                font-size: 40px;
+                position: absolute;
+                top: 10%;
+
+            }
+
+            footer .container-fluid h3 {
+                font-size: 1.9rem;
+
+                width: 70%;
+                position: relative;
+                left: 15%;
+                top: -10px;
+            }
+        }
+
+        figure.snip1278 {
+            font-family: 'Raleway', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+            min-width: 230px;
+            max-width: 310px;
+            width: 100%;
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        }
+
+        figure.snip1278 * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+            transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+        }
+
+        figure.snip1278 .image {
+            background-color: #000000;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        figure.snip1278 .image:after {
+            background-color: rgba(0, 0, 0, 0.85);
+            position: absolute;
+            content: '';
+            top: 0;
+            right: 0;
+            left: 50%;
+            bottom: 0;
+        }
+
+        figure.snip1278 img {
+            max-width: 100%;
+            vertical-align: top;
+        }
+
+        figure.snip1278 figcaption {
+            position: absolute;
+            width: 50%;
+            right: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 10px 25px;
+        }
+
+        figure.snip1278 h4,
+        figure.snip1278 p,
+        figure.snip1278 .price {
+            margin: 0 0 8px;
+        }
+
+        figure.snip1278 h4 {
+            position: absolute;
+            width: 50%;
+            top: 10px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: #ffffff;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        figure.snip1278 p {
+            font-size: 0.7em;
+            font-weight: 500;
+            line-height: 1.6em;
+        }
+
+        figure.snip1278 .rating {
+            position: absolute;
+            width: 50%;
+            line-height: 44px;
+            color: #ffffff;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        figure.snip1278 .price {
+            color: #ffffff;
+            font-size: 1.3em;
+            opacity: 0.8;
+        }
+
+        figure.snip1278 .price s {
+            display: inline-block;
+            padding: 0 8px 0 0;
+            font-size: 0.85em;
+            color: #f39c12;
+        }
+
+        figure.snip1278 .add-to-cart {
+            text-decoration: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-weight: 600;
+            width: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            line-height: 44px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        figure.snip1278:hover img,
+        figure.snip1278.hover img {
+            opacity: 0.6;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        figure.snip1278:hover .add-to-cart,
+        figure.snip1278.hover .add-to-cart {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="collapse navbar-collapse" id="myNavbar">
+    <form class="navbar-form navbar-left">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" th:value="${search}" name="search">
+        </div>
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+</div>
+
+<div class="container col-sm-10 col-sm-offset-1">
+    <div class="row display-4">
+        <div class="col-sm-4">
+            <th:block th:each="product : ${page.content}">
+                <figure class="snip1278">
+                    <h4 th:text="${product.name}"></h4>
+                    <div class="image">
+                        <img th:src="@{'/display?img=' + ${product.cover.generatedName}}"
+                             th:alt="${product.name}"/>
+                    </div>
+                    <div class="rating"><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i
+                            class="ion-ios-star"></i><i
+                            class="ion-ios-star"></i><i class="ion-ios-star-outline"></i></div>
+                    <figcaption>
+                        <p th:text="${product.color}"></p>
+                        <div class="price" th:text="${product.price}"></div>
+                    </figcaption>
+
+                    <li data-toggle="modal" data-target="#exampleModal">
+                        <a
+                                class="dropdown-item">Update
+                        </a>
+                    </li>
+                </figure>
+
+                <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Create product</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" th:action="@{'/productUpdate?product=' + ${product.id}}">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-group mb-3">
+                                                <label>Color</label>
+                                                <input type="text" name="color" class="form-control"
+                                                       th:value="${product.color}"/>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Price</label>
+                                                <input type="number" name="price" class="form-control"
+                                                       th:value="${product.price}"/>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </th:block>
+        </div><!--End of div col-sm-4 -->
+    </div><!-- End of div row -->
+</div>
+
+<nav aria-label="Pagination">
+    <ul class="pagination">
+
+        <th:block th:if="${page.hasPrevious()}">
+            <li class="page-item">
+                <a class="page-link" th:href="@{'?page='+${page.previousPageable().pageNumber}}"
+                   tabindex="-1">Previous</a>
+            </li>
+        </th:block>
+
+        <th:block th:each="pageNumber : ${pageNumbers}">
+            <li th:class="page-item" th:classappend="${page.number == pageNumber} ? active : ''"><a
+                    class="page-link" th:href="@{'?search='+${search}+'&page=' + ${pageNumber}}"
+                    th:text="${pageNumber}"></a></li>
+        </th:block>
+
+        <th:block th:if="${page.hasNext()}">
+            <li class="page-item">
+                <a class="page-link" th:href="@{'?page='+${page.nextPageable().pageNumber}}"
+                   tabindex="-1">Next</a>
+            </li>
+        </th:block>
+
+    </ul>
+</nav>
+
+<a th:href="@{/}" class="btn btn-success focus">Back</a>
+
+
+</body>
+</html>

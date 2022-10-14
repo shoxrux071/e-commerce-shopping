@@ -1,0 +1,584 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!--jQuery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!--Latest compiled and minified JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        nav .navbar-header a {
+            font-family: 'Raleway', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        nav .navbar-header a, ul li a {
+            color: #fff;
+
+        }
+
+        nav .navbar-header button .fa {
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 4px 10px;
+            font-size: 1.5em;
+            position: absolute;
+            top: -0.5px;
+            left: -30px;
+        }
+
+        .glyphicon-search {
+            color: #2874f0;
+        }
+
+        }
+        form {
+            position: relative;
+            top: 10px;
+        }
+
+        header {
+            color: #fff;
+            position: relative;
+            top: 4em;
+
+        }
+
+        header h2 {
+            font-size: 3em;
+        }
+
+        header .jumbotron {
+            background-image: url('https://ak0.picdn.net/shutterstock/videos/10167680/thumb/1.jpg');
+            width: 100%;
+            background-size: cover;
+        }
+
+        section {
+            position: relative;
+            top: 8em;
+        }
+
+        /*nav .pagination{
+          position:relative;
+          top:75%;
+          left:38%;
+        }*/
+        section .page nav ul {
+            position: relative;
+            margin-left: -15px;
+        }
+
+        footer {
+            position: relative;
+            top: 9em;
+            color: #565656;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        footer .container .col-sm-4 ul li a {
+            color: #565656;
+        }
+
+        footer .container .col-sm-4 ul li a:hover {
+            text-decoration: none;
+        }
+
+        footer .container-fluid span {
+            font-size: 30px;
+            position: absolute;
+            top: 25%;
+            left: 12%;
+        }
+
+        footer .container-fluid h3 {
+            font-size: 20px;
+            margin-left: 30px;
+        }
+
+        @media (max-width: 766px) {
+
+            section {
+                width: 80%;
+                left: 10%;
+            }
+
+        }
+
+        @media (min-width: 863px) {
+            footer .container-fluid span {
+                font-size: 40px;
+                position: absolute;
+                top: 10%;
+
+            }
+
+            footer .container-fluid h3 {
+                font-size: 1.9rem;
+
+                width: 70%;
+                position: relative;
+                left: 15%;
+                top: -10px;
+            }
+        }
+
+        figure.snip1278 {
+            font-family: 'Raleway', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+            min-width: 230px;
+            max-width: 310px;
+            width: 100%;
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        }
+
+        figure.snip1278 * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+            transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+        }
+
+        figure.snip1278 .image {
+            background-color: #000000;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        figure.snip1278 .image:after {
+            background-color: rgba(0, 0, 0, 0.85);
+            position: absolute;
+            content: '';
+            top: 0;
+            right: 0;
+            left: 50%;
+            bottom: 0;
+        }
+
+        figure.snip1278 img {
+            max-width: 100%;
+            vertical-align: top;
+        }
+
+        figure.snip1278 figcaption {
+            position: absolute;
+            width: 50%;
+            right: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 10px 25px;
+        }
+
+        figure.snip1278 h4,
+        figure.snip1278 p,
+        figure.snip1278 .price {
+            margin: 0 0 8px;
+        }
+
+        figure.snip1278 h4 {
+            position: absolute;
+            width: 50%;
+            top: 10px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: #ffffff;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        figure.snip1278 p {
+            font-size: 0.7em;
+            font-weight: 500;
+            line-height: 1.6em;
+        }
+
+        figure.snip1278 .rating {
+            position: absolute;
+            width: 50%;
+            line-height: 44px;
+            color: #ffffff;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        figure.snip1278 .price {
+            color: #ffffff;
+            font-size: 1.3em;
+            opacity: 0.8;
+        }
+
+        figure.snip1278 .price s {
+            display: inline-block;
+            padding: 0 8px 0 0;
+            font-size: 0.85em;
+            color: #f39c12;
+        }
+
+        figure.snip1278 .add-to-cart {
+            text-decoration: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-weight: 600;
+            width: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            line-height: 44px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        figure.snip1278:hover img,
+        figure.snip1278.hover img {
+            opacity: 0.6;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        figure.snip1278:hover .add-to-cart,
+        figure.snip1278.hover .add-to-cart {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark navbar-fixed-top" style="background-color:#2874f0;">
+
+    <div class="container">
+        <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+            <div class="container">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Admin menu
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li data-toggle="modal" data-target="#exampleModal">
+                            <a
+                                    class="dropdown-item">Product add
+                            </a>
+                        </li>
+                        <li><a href="/productList" class="dropdown-item">Show list of products</a></li>
+                        <li><a href="/productUpdateList" class="dropdown-item">Update Product</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" th:value="${search}" name="search">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/basket"><span class="glyphicon glyphicon-shopping-cart"></span>Basket<span
+                        class="badge"></span></a>
+            </li>
+            <li class="nav-item" sec:authorize="isAnonymous()">
+                <a href="/auth/login" class="btn btn-outline-success">Login</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAnonymous()">
+                <a href="/auth/register" class="btn btn-outline-primary">Register</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+<div class="menu container-fluid text-center hidden-xs" style="position:relative;top:4em; padding-bottom:5px;">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-2">
+                <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true" style="background-color:#fff;">
+                    Men
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Footwear</a></li>
+                    <li><a href="#">Top wear</a></li>
+                    <li><a href="#">Sports wear</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true" style="background-color:#fff;">
+                    Women
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true" style="background-color:#fff;">
+                    Cameras
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true" style="background-color:#fff;">
+                    Electronics
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Mobiles</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true" style="background-color:#fff;">
+                    Books
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-block" aria-expanded="true" style="background-color:#fff;">Offer Zone</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<header>
+    <div class="col-sm-12 jumbotron text-center">
+        <h2>Welcome to our Lifestyle Store!</h2>
+        <h6>We have the best cameras,watches and shirts for you. No need to hunt around, we have all in one place</h6>
+    </div>
+</header>
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/productCreate" enctype="multipart/form-data">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label>Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Product Name"/>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label>Category</label>
+                                <input type="text" name="category" class="form-control" placeholder="Product Category"/>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label>Color</label>
+                                <input type="text" name="color" class="form-control" placeholder="Product Color"/>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label>Price</label>
+                                <input type="number" name="price" class="form-control"
+                                       placeholder="Price"/>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label>Cover</label>
+                                <input type="file" name="file" class="form-control" placeholder="Cover"/>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!---->
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card-body">
+                    <th:block th:each="product : ${products}">
+                        <figure class="snip1278">
+                            <h4 th:text="${product.name}"></h4>
+                            <div class="image">
+                                <!--       ${product.cover.path}  th:src="@{'/image?img=' + ${product.image.generatedName}}"-->
+                                <img th:src="@{'/display?img=' + ${product.cover.generatedName}}"
+                                     th:alt="${product.name} "/>
+                            </div>
+                            <div class="rating"><i class="ion-ios-star"></i><i class="ion-ios-star"></i><i
+                                    class="ion-ios-star"></i><i
+                                    class="ion-ios-star"></i><i class="ion-ios-star-outline"></i></div>
+                            <figcaption>
+                                <p th:text="${product.color}"></p>
+                                <div class="price" th:text="'$'+${product.price}"></div>
+                            </figcaption>
+                            <a th:href="@{'/cardCreate?product=' + ${product.id}}" class="add-to-cart">Add to Cart</a>
+                        </figure>
+                    </th:block>
+                </div>
+            </div><!--End of div col-sm-4 -->
+        </div><!-- End of div row -->
+    </div>
+
+
+    <nav aria-label="Pagination">
+        <ul class="pagination">
+
+            <th:block th:if="${page.hasPrevious()}">
+                <li class="page-item">
+                    <a class="page-link" th:href="@{'?page='+${page.previousPageable().pageNumber}}" tabindex="-1">Previous</a>
+                </li>
+            </th:block>
+
+            <th:block th:each="pageNumber : ${pageNumbers}">
+                <li th:class="page-item" th:classappend="${page.number == pageNumber} ? active : ''"><a
+                        class="page-link" th:href="@{'?search='+${search}+'&page=' + ${pageNumber}}"
+                        th:text="${pageNumber}"></a></li>
+            </th:block>
+
+            <th:block th:if="${page.hasNext()}">
+                <li class="page-item">
+                    <a class="page-link" th:href="@{'?page='+${page.nextPageable().pageNumber}}" tabindex="-1">Next</a>
+                </li>
+            </th:block>
+
+        </ul>
+    </nav>
+
+</section>
+
+<footer class="page-footer container-fluid col-sm-12">
+    <hr>
+    <div class="container">
+        <div class="col-sm-4">
+            <h4>Help</h4>
+            <ul class="list-unstyled quick-links">
+                <li><a href="">Payments</a></li>
+
+                <li><a href="">Shipping</a></li>
+
+                <li><a href="">Cancellations & Return</a></li>
+
+                <li><a href="">FAQ</a></li>
+
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <h4>Lifestyle Store</h4>
+            <ul class="list-unstyled quick-links">
+                <li><a href="">Contact Us</a></li>
+
+                <li><a href="">About Us</a></li>
+                <li><a href="">Careers</a></li>
+                <li><a href="">Stories</a></li>
+                <li><a href="">Sell With Us</a></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <h4>MISC</h4>
+            <ul class="list-unstyled quick-links">
+                <li><a href="">Online Shopping</a></li>
+                <li><a href="">Gift Card</a></li>
+                <li><a href=""></a></li>
+                Sitemap
+            </ul>
+        </div>
+
+    </div>
+    <div class="container-fluid col-lg-10 col-lg-offset-1">
+        <div class="row">
+            <hr>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <h3 class="text-center">&nbsp;TRACK YOUR ORDER</h3>
+            </div>
+
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-refresh"></span>
+                <h3 class="text-center">&nbsp;&nbsp;FREE & EASY RETURNS</h3>
+
+            </div>
+
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-remove-circle"></span>
+                <h3 class="text-center">ONLINE CANCELLATIONS</h3>
+            </div>
+        </div>
+    </div>
+    <hr>
+    </div>
+    </div>
+
+</footer>
+</body>

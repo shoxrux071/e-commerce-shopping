@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:include="fragments.html :: head('Login Page')"></head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    body{
+        padding: 10px;
+    }
+
+    .left-side{
+        width: 20%;
+        box-sizing: border-box;
+    }
+
+    .left-side main-menu{
+        border: 1px solid;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .main-menu ul{
+        list-style: none;
+    }
+
+    .main-menu ul li{
+        margin: 8px 0;
+    }
+
+    .main-menu ul li a{
+        color: rgb(0, 29, 73);
+    }
+
+    .main-menu h2{
+        cursor: pointer;
+    }
+
+    .block{
+        border: 1px solid;
+        padding: 20px;
+    }
+
+    .block h2{
+        cursor: pointer;
+    }
+
+    header .jumbotron{
+        background-image:url('https://ak0.picdn.net/shutterstock/videos/10167680/thumb/1.jpg');
+        width:100%;
+        background-size:cover;
+    }
+
+</style>
+
+<body>
+<section th:include="fragments.html :: navbar"></section>
+
+<!--<header th:style="'background: url(/static/images/shop.jpg) no-repeat center center;'"-->
+<!--        class="jumbotron jumbotron-fluid">-->
+<!--    <div class="container-fluid text-center">-->
+<!--        <h1 class="display-3">The Best Solution for Your need</h1>-->
+<!--    </div>-->
+<!--</header>-->
+
+<header>
+    <div class="col-sm-12 jumbotron text-center">
+        <h2>Welcome to our Lifestyle Store!</h2>
+        <h6>We have the best cameras,watches and shirts for you. No need to hunt around, we have all in one place</h6>
+    </div>
+</header>
+<br/>
+
+<div class="left-side">
+    <div class="main-manu">
+        <h2> For Men </h2>
+        <ul>
+            <li>
+                <a href="#">T-Shirt</a>
+            </li>
+            <li>
+                <a href="#">Jeans</a>
+            </li>
+            <li>
+                <a href="#">Shoos</a>
+            </li>
+        </ul>
+    </div>
+<br/>
+    <div class="block">
+        <h2> For Women </h2>
+        <ul>
+            <li>
+                <a href="#">T-Shirt</a>
+            </li>
+            <li>
+                <a href="#">Jeans</a>
+            </li>
+            <li>
+                <a href="#">Shoos</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</div>
+
+
+</body>
+</html>

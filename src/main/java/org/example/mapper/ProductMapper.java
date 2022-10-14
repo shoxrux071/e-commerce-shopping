@@ -1,8 +1,9 @@
-package org.example.repository.mapper;
+package org.example.mapper;
 
 import org.example.domains.Product;
 import org.example.dto.ProductCreateDto;
 import org.mapstruct.Mapper;
+
 
 
 @Mapper(componentModel = "spring")
