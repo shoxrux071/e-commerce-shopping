@@ -9,7 +9,8 @@ public class ApplicationServletConfigurer extends AbstractAnnotationConfigDispat
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{
-                ApplicationConfigurer.class
+                ApplicationConfigurer.class,
+                PersistenceConfigurer.class
         };
     }
 
